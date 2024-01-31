@@ -1,110 +1,148 @@
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     user-select: none;
 }
-:root {
-    --bg-white: #ffffff;
-    --bg-black: #121212;
-    --bg-blue: #00ff6a;
-    --bg-dest: #444;
-    --color-dest: #d9eaee;
-    --border-keys: #ddd;
-    --show-keys: #868686;
-}
-
-
 
 body {
-    background: var(--bg-white);
+    background: linear-gradient(125deg, #55ffff, #009c9c);
+}
+
+.tittle {
+    text-transform: uppercase;
+    font-size: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+    color: #006eff;
+    height: 100px;
+    background: linear-gradient(to right, #009c9c18, #009c9c, #009c9c18);
 }
 .piano {
-    background: var(--bg-black);
+    background-color: #121212;
     width: 1000px;
     height: 400px;
-    margin: 100px auto 0px;
+    margin: 100px auto 0;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0px 0px 10px 2px var(--bg-dest);
+    margin-bottom: 83px;
 }
+
 .controls {
-    color: var(--color-dest);
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.8);
     padding: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
+
 .controls h1 {
-    text-transform: uppercase;
     font-weight: 500;
     font-size: 1.4rem;
 }
+
 .switcher {
-    cursor: pointer;
-    background-color: var(--bg-dest);
-    display: flex;
     width: 50px;
     height: 25px;
-    border-radius: 80px;
-    padding: 2px;
+    background-color: #555;
+    display: flex;
+    border-radius: 50px;
+    padding: 4px;
 }
-.slider {
-    transition: all 0.7s;
+
+.switcher__button {
     height: 100%;
-    width: 21px;
-    background: var(--color-dest);
+    aspect-ratio: 1/1;
+    background-color: #ddd;
     border-radius: 25px;
-    position: relative;
-    left: 0;
 }
-.slider.active {
-    background: var(--bg-blue);
-    left: 25px;
+
+.switcher--active {
+    background-color: #006eff;
+    justify-content: flex-end;
 }
-input {
-    visibility: hidden;
-}
-.center {
+
+.checkbox__label {
     display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 20px;
+    gap: 15px;
 }
-.pianoKeys {
-    display: flex;
+
+.piano__keys {
     width: 100%;
     height: 300px;
-    background: var(--bg-dest);
+    background-color: #181818;
     border-radius: 15px;
     padding: 30px 40px;
+    display: flex;
 }
+
 .white {
-    background: var(--bg-white);
+    background-color: white;
     flex-grow: 1;
     border-radius: 5px;
-    border-bottom: 8px solid var(--border-keys);
+    border-bottom: 8px solid #ddd;
+    color: rgba(0, 0, 0, 0.3);
+    margin-left: -17px;
+    z-index: 1;
 }
-.n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24 {
+
+.key span {
     font-weight: 600;
     position: absolute;
-    color: var(--show-keys);
+    transition-duration: 300ms;
 }
-.n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24.active {
-    visibility: visible;
-}
+
 .key {
     position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     padding-bottom: 8px;
+    user-select: none;
+}
+
+.black {
+    width: 40px;
+    background: linear-gradient(black, #333);
+    height: 150px;
+    border-radius: 0 0 5px 5px;
+    border-bottom: 8px solid #222;
+    margin-left: -20px;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.piano__keys .white:nth-child(1) {
+    margin-left: 0;
+}
+
+.piano__keys .white:nth-child(5) {
+    margin-right: 20px;
+}
+
+.piano__keys .white:nth-child(12) {
+    margin-right: 20px;
+}
+
+.piano__keys .white:nth-child(17) {
+    margin-right: 20px;
+}
+
+.black--pressed {
+    background: linear-gradient(#222, black);
+    border-bottom: none;
+    height: 148px;
+}
+
+.disabled-keys span {
+    opacity: 0;
 }
